@@ -24,7 +24,7 @@ class MyPayments extends Component
             'Accept'=> 'application/json'
         ])->post('https://api.mista.io/sms',[
             'to'=>"+25".$user->payment_phone,
-            'from'=>"PBP",
+            'from'=>"UokalmniMS",
             'unicode'=>0,
             'sms'=>"$sms",
             'action'=>"send-sms"
