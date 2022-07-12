@@ -60,7 +60,7 @@
         </td>
 
         <td class="px-6 py-4">
-            <button wire:loading.remove wire:click="comfirm_pay('{{ $myPay->transaction_id }}')" type="button" class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">Confirm pay</button>
+            <button wire:click="comfirm_pay('{{ $myPay->transaction_id }}')" type="button" class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">Confirm pay</button>
 
         </td>
 
@@ -73,4 +73,6 @@
 
         </tbody>
     </table>
+
+    <div wire:loading class="loading">Loading&#8230;</div>
 </div>
