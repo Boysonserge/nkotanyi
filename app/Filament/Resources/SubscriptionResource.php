@@ -29,6 +29,7 @@ class SubscriptionResource extends Resource
                         Forms\Components\TextInput::make('sub_name')
                             ->maxLength(255),
                         Forms\Components\TextInput::make('sub_price'),
+                        Forms\Components\Textarea::make('description')
                     ])
 
             ]);
@@ -40,6 +41,7 @@ class SubscriptionResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('sub_name'),
                 Tables\Columns\TextColumn::make('sub_price'),
+                Tables\Columns\TextColumn::make('description')->wrap(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->since(),
 

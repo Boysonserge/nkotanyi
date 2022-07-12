@@ -296,7 +296,7 @@
                                 </ul>
                             </div>
                             <div>
-                                <a class="block sm:inline-block py-4 px-6 mb-4 sm:mb-0 sm:mr-3 text-xs text-blue-500 font-semibold leading-none bg-white hover:bg-blueGray-50 rounded" href="#">Start Free Trial</a>
+                                <a class="block sm:inline-block py-4 px-6 mb-4 sm:mb-0 sm:mr-3 text-xs text-blue-500 font-semibold leading-none bg-white hover:bg-blueGray-50 rounded" href="{{route('subscribe',['subName'=>$subscri->sub_name])}}">Start Free Trial</a>
                                 <a class="block sm:inline-block py-4 px-6 text-xs font-semibold leading-none border border-blue-500 hover:border-blue-400 rounded" href="#">Purchase</a>
                             </div>
                         </div>
@@ -323,7 +323,7 @@
                                     </ul>
                                 </div>
                                 <div>
-                                    <a class="block sm:inline-block py-4 px-6 mb-4 sm:mb-0 sm:mr-3 text-xs text-white text-center font-semibold leading-none bg-blue-400 hover:bg-blue-500 rounded" href="#">Start Free Trial</a>
+                                    <a class="block sm:inline-block py-4 px-6 mb-4 sm:mb-0 sm:mr-3 text-xs text-white text-center font-semibold leading-none bg-blue-400 hover:bg-blue-500 rounded" href="{{route('subscribe',['subName'=>$subscri->sub_name])}}">Start Free Trial</a>
                                     <a class="block sm:inline-block py-4 px-6 text-xs text-blueGray-500 hover:text-blueGray-600 text-center font-semibold leading-none bg-white border border-blueGray-200 hover:border-blueGray-300 rounded" href="#">Purchase</a>
                                 </div>
                             </div>
