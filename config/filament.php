@@ -27,7 +27,6 @@ return [
 
     'path' => env('FILAMENT_PATH', 'admin'),
 
-
     /*
     |--------------------------------------------------------------------------
     | Filament Core Path
@@ -39,7 +38,6 @@ return [
     */
 
     'core_path' => env('FILAMENT_CORE_PATH', 'filament'),
-
 
     /*
     |--------------------------------------------------------------------------
@@ -141,9 +139,8 @@ return [
         'namespace' => 'App\\Filament\\Widgets',
         'path' => app_path('Filament/Widgets'),
         'register' => [
-
-//            Widgets\AccountWidget::class,
-//            Widgets\FilamentInfoWidget::class,
+            /*Widgets\AccountWidget::class,
+            Widgets\FilamentInfoWidget::class,*/
         ],
     ],
 
@@ -176,6 +173,44 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Database notifications
+    |--------------------------------------------------------------------------
+    |
+    | By enabling this feature, your users are able to open a slide-over within
+    | the admin panel to view their database notifications.
+    |
+    */
+
+    'database_notifications' => [
+        'enabled' => true,
+        'polling_interval' => '30s',
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Broadcasting
+    |--------------------------------------------------------------------------
+    |
+    | By uncommenting the Laravel Echo configuration, you may connect your
+    | admin panel to any Pusher-compatible websockets server.
+    |
+    | This will allow your admin panel to receive real-time notifications.
+    |
+    */
+
+    'broadcasting' => [
+
+        // 'echo' => [
+        //     'broadcaster' => 'pusher',
+        //     'key' => env('VITE_PUSHER_APP_KEY'),
+        //     'cluster' => env('VITE_PUSHER_APP_CLUSTER'),
+        //     'forceTLS' => true,
+        // ],
+
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
     | Layout
     |--------------------------------------------------------------------------
     |
@@ -187,6 +222,13 @@ return [
     */
 
     'layout' => [
+        'actions' => [
+            'modal' => [
+                'actions' => [
+                    'alignment' => 'left',
+                ],
+            ],
+        ],
         'forms' => [
             'actions' => [
                 'alignment' => 'left',
@@ -199,14 +241,15 @@ return [
         'max_content_width' => null,
         'notifications' => [
             'vertical_alignment' => 'top',
-            'alignment' => 'center',
+            'alignment' => 'right',
         ],
         'sidebar' => [
-            'is_collapsible_on_desktop' => true,
+            'is_collapsible_on_desktop' => false,
             'groups' => [
                 'are_collapsible' => true,
             ],
             'width' => null,
+            'collapsed_width' => null,
         ],
     ],
 

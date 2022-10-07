@@ -11,7 +11,7 @@ class IndexController extends Controller
     public function index(){
         $subs=Subscription::with('items')->get();
         $countStudents=User::query()->where('role','student')->count();
-        return view('welcome',
+        return view('welcome1',
             [
                 'subs'=>$subs,
                 'students'=>$countStudents

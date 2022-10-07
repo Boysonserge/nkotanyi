@@ -1,492 +1,701 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zxx">
+
 <head>
-    <title>Welcome to {{ config('app.name')}}</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Tailwind CSS Saas Landing Page">
-    <meta name="author" content="alithemes.com">
-    <link rel="icon" type="image/png" sizes="16x16" href="{{asset('assets/imgs/logos/favicon.svg')}}">
-    <!-- Vendor CSS -->
-    <link rel="stylesheet" href="{{asset('assets/css/animate.min.css?v=2.0')}}">
-    <link rel="stylesheet" href="{{asset('assets/css/slick.css?v=2.0')}}">
-    <!-- Template CSS -->
-    <link rel="stylesheet" href="{{asset('assets/css/tailwind-built.css?v=2.0')}}">
-    <style>
-        /* Absolute Center Spinner */
-        .loading {
-            position: fixed;
-            z-index: 999;
-            height: 2em;
-            width: 2em;
-            overflow: show;
-            margin: auto;
-            top: 0;
-            left: 0;
-            bottom: 0;
-            right: 0;
-        }
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        /* Transparent Overlay */
-        .loading:before {
-            content: '';
-            display: block;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(rgba(20, 20, 20,.8), rgba(0, 0, 0, .8));
+    <link rel="stylesheet" href="{{asset('assets/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/meanmenu.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/owl.carousel.min.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/owl.theme.default.min.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/magnific-popup.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/flaticon.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/remixicon.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/odometer.min.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/aos.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/dark.css')}}">
 
-            background: -webkit-radial-gradient(rgba(20, 20, 20,.8), rgba(0, 0, 0,.8));
-        }
+    <link rel="stylesheet" href="{{asset('assets/css/responsive.css')}}">
 
-        /* :not(:required) hides these rules from IE9 and below */
-        .loading:not(:required) {
-            /* hide "loading..." text */
-            font: 0/0 a;
-            color: transparent;
-            text-shadow: none;
-            background-color: transparent;
-            border: 0;
-        }
-
-        .loading:not(:required):after {
-            content: '';
-            display: block;
-            font-size: 10px;
-            width: 1em;
-            height: 1em;
-            margin-top: -0.5em;
-            -webkit-animation: spinner 150ms infinite linear;
-            -moz-animation: spinner 150ms infinite linear;
-            -ms-animation: spinner 150ms infinite linear;
-            -o-animation: spinner 150ms infinite linear;
-            animation: spinner 150ms infinite linear;
-            border-radius: 0.5em;
-            -webkit-box-shadow: rgba(255,255,255, 0.75) 1.5em 0 0 0, rgba(255,255,255, 0.75) 1.1em 1.1em 0 0, rgba(255,255,255, 0.75) 0 1.5em 0 0, rgba(255,255,255, 0.75) -1.1em 1.1em 0 0, rgba(255,255,255, 0.75) -1.5em 0 0 0, rgba(255,255,255, 0.75) -1.1em -1.1em 0 0, rgba(255,255,255, 0.75) 0 -1.5em 0 0, rgba(255,255,255, 0.75) 1.1em -1.1em 0 0;
-            box-shadow: rgba(255,255,255, 0.75) 1.5em 0 0 0, rgba(255,255,255, 0.75) 1.1em 1.1em 0 0, rgba(255,255,255, 0.75) 0 1.5em 0 0, rgba(255,255,255, 0.75) -1.1em 1.1em 0 0, rgba(255,255,255, 0.75) -1.5em 0 0 0, rgba(255,255,255, 0.75) -1.1em -1.1em 0 0, rgba(255,255,255, 0.75) 0 -1.5em 0 0, rgba(255,255,255, 0.75) 1.1em -1.1em 0 0;
-        }
-
-        /* Animation */
-
-        @-webkit-keyframes spinner {
-            0% {
-                -webkit-transform: rotate(0deg);
-                -moz-transform: rotate(0deg);
-                -ms-transform: rotate(0deg);
-                -o-transform: rotate(0deg);
-                transform: rotate(0deg);
-            }
-            100% {
-                -webkit-transform: rotate(360deg);
-                -moz-transform: rotate(360deg);
-                -ms-transform: rotate(360deg);
-                -o-transform: rotate(360deg);
-                transform: rotate(360deg);
-            }
-        }
-        @-moz-keyframes spinner {
-            0% {
-                -webkit-transform: rotate(0deg);
-                -moz-transform: rotate(0deg);
-                -ms-transform: rotate(0deg);
-                -o-transform: rotate(0deg);
-                transform: rotate(0deg);
-            }
-            100% {
-                -webkit-transform: rotate(360deg);
-                -moz-transform: rotate(360deg);
-                -ms-transform: rotate(360deg);
-                -o-transform: rotate(360deg);
-                transform: rotate(360deg);
-            }
-        }
-        @-o-keyframes spinner {
-            0% {
-                -webkit-transform: rotate(0deg);
-                -moz-transform: rotate(0deg);
-                -ms-transform: rotate(0deg);
-                -o-transform: rotate(0deg);
-                transform: rotate(0deg);
-            }
-            100% {
-                -webkit-transform: rotate(360deg);
-                -moz-transform: rotate(360deg);
-                -ms-transform: rotate(360deg);
-                -o-transform: rotate(360deg);
-                transform: rotate(360deg);
-            }
-        }
-        @keyframes spinner {
-            0% {
-                -webkit-transform: rotate(0deg);
-                -moz-transform: rotate(0deg);
-                -ms-transform: rotate(0deg);
-                -o-transform: rotate(0deg);
-                transform: rotate(0deg);
-            }
-            100% {
-                -webkit-transform: rotate(360deg);
-                -moz-transform: rotate(360deg);
-                -ms-transform: rotate(360deg);
-                -o-transform: rotate(360deg);
-                transform: rotate(360deg);
-            }
-        }
-    </style>
+    <link rel="icon" type="image/png" href="{{asset('assets/images/favicon.png')}}">
+    <title>UOK ALUMNI</title>
 </head>
-<body class="bg-white text-body font-body">
 
-<div class="main">
-    @include('inc.header')
-    <!--Hero-->
-    <section class="xl:bg-contain bg-top bg-no-repeat -mt-24 pt-24" style="background-image: url('assets/imgs/backgrounds/intersect.svg')">
-        <div class="container px-4 mx-auto">
-            <div class="pt-12 text-center">
-                <div class="max-w-2xl mx-auto mb-8">
-                    <h2 class="text-3xl lg:text-5xl lg:leading-normal mb-4 font-bold font-heading wow animate__animated animate__fadeIn">Committed to students <br>Committed <span class="text-blue-500">to their Future</span></h2>
-                    <p class="text-blueGray-400 leading-relaxed wow animate__animated animate__fadeIn">This is <strong class="text-blue-500">MY UOK</strong>, Prepare for your <span class="typewrite d-inline text-brand" data-period="3000" data-type='["Future", "Passion" ]'></span></p>
-                </div>
-                <div>
-                    <a class="btn-primary py-4 px-8 mr-2 wow animate__animated animate__fadeInUp hover-up-2" href="#key-features">Key Features</a>
-                    <a class="btn-white wow animate__animated animate__fadeInUp hover-up-2" data-wow-delay=".3s" href="#how-we-work">How We Work?</a>
-                </div>
-            </div>
-        </div>
-        <div class="container px-4 mx-auto">
-            <div class="flex flex-wrap justify-between pt-8 pb-16">
-                <div class="hover-up-5 flex w-1/2 lg:w-auto py-4 wow animate__animated animate__fadeInUp" data-wow-delay=".2s">
-                    <div class="flex justify-center items-center bg-blueGray-50 text-blue-500 rounded-xl h-12 w-12 sm:h-20 sm:w-20">
-                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
-                        </svg>
-                    </div>
-                    <div class="sm:py-2 ml-2 sm:ml-6">
-                        <span class="sm:text-2xl font-bold font-heading">+ </span>
-                        <span class="sm:text-2xl font-bold font-heading count">{{$students}}</span>
-                        <p class="text-xs sm:text-base text-blueGray-400">Annual Partner</p>
-                    </div>
-                </div>
-                <div class="hover-up-5 flex w-1/2 lg:w-auto py-4 wow animate__animated animate__fadeInUp" data-wow-delay=".4s">
-                    <div class="flex justify-center items-center bg-blueGray-50 text-blue-500 rounded-xl h-12 w-12 sm:h-20 sm:w-20">
-                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"></path>
-                        </svg>
-                    </div>
-                    <div class="sm:py-2 ml-2 sm:ml-6">
-                        <span class="sm:text-2xl font-bold font-heading">+ </span>
-                        <span class="sm:text-2xl font-bold font-heading count">58</span>
-                        <span class="sm:text-2xl font-bold font-heading"> k </span>
-                        <p class="text-xs sm:text-base text-blueGray-400">Completed Projects</p>
-                    </div>
-                </div>
-                <div class="hover-up-5 flex w-1/2 lg:w-auto py-4 wow animate__animated animate__fadeInUp" data-wow-delay=".6s">
-                    <div class="flex justify-center items-center bg-blueGray-50 text-blue-500 rounded-xl h-12 w-12 sm:h-20 sm:w-20">
-                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path>
-                        </svg>
-                    </div>
-                    <div class="sm:py-2 ml-2 sm:ml-6">
-                        <span class="sm:text-2xl font-bold font-heading">+ </span>
-                        <span class="sm:text-2xl font-bold font-heading count">500</span>
-                        <p class="text-xs sm:text-base text-blueGray-400">Happy Customers</p>
-                    </div>
-                </div>
-                <div class="hover-up-5 flex w-1/2 lg:w-auto py-4 wow animate__animated animate__fadeInUp" data-wow-delay=".8s">
-                    <div class="flex justify-center items-center bg-blueGray-50 text-blue-500 rounded-xl h-12 w-12 sm:h-20 sm:w-20">
-                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
-                        </svg>
-                    </div>
-                    <div class="sm:py-2 ml-2 sm:ml-6">
-                        <span class="sm:text-2xl font-bold font-heading">+ </span>
-                        <span class="sm:text-2xl font-bold font-heading count">320</span>
-                        <p class="text-xs sm:text-base text-blueGray-400">Research Work</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!--Features-->
-    <section class="py-12 md:py-16 lg:py-32 overflow-x-hidden" id="key-features">
-        <div class="container px-4 mx-auto">
-            <div class="flex flex-wrap lg:flex-nowrap">
-                <div class="w-full lg:w-1/2">
-                    <div class="lg:py-6 lg:pr-32 wow animate__animated animate__fadeIn" data-wow-delay=".3s">
-                        <div class="mb-4">
-                            <span class="text-xs py-1 px-3 text-blue-500 font-semibold bg-blue-50 rounded-xl wow animate__animated animate__fadeInDown" data-wow-delay=".9s">Why choose us</span>
-                            <h2 class="text-4xl mt-5 font-bold font-heading wow animate__animated animate__fadeInUp" data-wow-delay=".3s">Key Features</h2>
-                        </div>
-                        <div class="flex items-start py-4 wow animate__animated animate__fadeInUp" data-wow-delay=".5s">
-                            <div class="w-8 mr-5 text-blue-500">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
-                                </svg>
-                            </div>
-                            <div>
-                                <h3 class="mb-2 text-xl font-semibold font-heading">Join our community</h3>
-                                <p class="text-blueGray-400 leading-loose">Create a free plan account to get started.</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start py-4 wow animate__animated animate__fadeInUp" data-wow-delay=".7s">
-                            <div class="w-8 mr-5 text-blue-500">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"></path>
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"></path>
-                                </svg>
-                            </div>
-                            <div>
-                                <h3 class="mb-2 text-xl font-semibold font-heading">Choose your preferred plan</h3>
-                                <p class="text-blueGray-400 leading-loose">Once account is created, you can choose a plan depending on your preferences and get amazing discount on <b>UOK EVENTS</b></p>
-                            </div>
-                        </div>
-                        <div class="flex items-start py-4 wow animate__animated animate__fadeInUp" data-wow-delay=".9s">
-                            <div class="w-8 mr-5 text-blue-500">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-                                </svg>
-                            </div>
-                            <div>
-                                <h3 class="mb-2 text-xl font-semibold font-heading">Start enjoying</h3>
-                                <p class="text-blueGray-400 leading-loose">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Veritatis expedita animi.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="relative w-full lg:w-1/2 my-12 lg:my-0">
-                    <div class="wow animate__animated animate__fadeInRight" data-wow-delay=".5s">
-                        <img class="jump relative mx-auto rounded-xl w-full z-10" src="assets/imgs/placeholders/img-1.png" alt="">
-                        <img class="absolute top-0 left-0 w-40 -ml-12 -mt-12" src="assets/imgs/elements/blob-tear.svg" alt="">
-                        <img class="absolute bottom-0 right-0 w-40 -mr-12 -mb-12" src="assets/imgs/elements/blob-tear.svg" alt="">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<body>
 
-    <section class="py-20 bg-blueGray-50" id="how-we-work">
-        <div class="container px-4 mx-auto">
-            <div class="flex flex-wrap items-center justify-between max-w-2xl lg:max-w-full mb-12">
-                <div class="w-full lg:w-1/2 mb-4 lg:mb-0">
-                    <h2 class="text-3xl md:text-4xl font-bold font-heading wow animate__animated animate__fadeInDown">
-                        <span>We are</span>
-                        <span class="text-blue-500">awesome team</span>
-                        <br>
-                        <span>for your business dream</span>
-                    </h2>
-                </div>
-                <div class="w-full lg:w-1/2 lg:pl-16">
-                    <p class="text-blueGray-400 leading-loose wow animate__animated animate__fadeInUp">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed luctus eget justo et iaculis. Quisque vitae nulla malesuada, auctor arcu vitae, luctus nisi. Sed elementum vitae ligula id imperdiet.</p>
-                </div>
-            </div>
-            <div class="flex flex-wrap -mx-3 -mb-6 text-center">
-                <div class="hover-up-5 w-full md:w-1/2 lg:w-1/3 px-3 mb-6 wow animate__animated animate__fadeInUp" data-wow-delay=".3s">
-                    <div class="p-12 bg-white shadow rounded">
-                        <div class="flex w-12 h-12 mx-auto items-center justify-center text-blue-800 font-bold font-heading bg-blue-200 rounded-full">1</div>
-                        <img class="h-48 mx-auto my-4" src="assets/imgs/illustrations/eating.svg" alt="">
-                        <h3 class="mb-2 font-bold font-heading">Project Initialization</h3>
-                        <p class="text-sm text-blueGray-400 leading-relaxed">Sed ac magna sit amet risus tristique interdum at vel velit. In hac habitasse platea dictumst.</p>
-                    </div>
-                </div>
-                <div class="hover-up-5 w-full md:w-1/2 lg:w-1/3 px-3 mb-6 wow animate__animated animate__fadeInUp" data-wow-delay=".5s">
-                    <div class="p-12 bg-white shadow rounded">
-                        <div class="flex w-12 h-12 mx-auto items-center justify-center text-blue-800 font-bold font-heading bg-blue-200 rounded-full">2</div>
-                        <img class="h-48 mx-auto my-4" src="assets/imgs/illustrations/space.svg" alt="">
-                        <h3 class="mb-2 font-bold font-heading">Looking for Creative</h3>
-                        <p class="text-sm text-blueGray-400 leading-relaxed">Sed ac magna sit amet risus tristique interdum at vel velit. In hac habitasse platea dictumst.</p>
-                    </div>
-                </div>
-                <div class="hover-up-5 w-full lg:w-1/3 px-3 mb-6">
-                    <div class="p-12 bg-white shadow rounded wow animate__animated animate__fadeInUp" data-wow-delay=".7s">
-                        <div class="flex w-12 h-12 mx-auto items-center justify-center text-blue-800 font-bold font-heading bg-blue-200 rounded-full">3</div>
-                        <img class="h-48 mx-auto my-4" src="assets/imgs/illustrations/tasks.svg" alt="">
-                        <h3 class="mb-2 font-bold font-heading">Market Development</h3>
-                        <p class="text-sm text-blueGray-400 leading-relaxed">Sed ac magna sit amet risus tristique interdum at vel velit. In hac habitasse platea dictumst.</p>
-                    </div>
+<div class="preloader-area">
+    <div class="spinner">
+        <div class="inner">
+            <div class="disc"></div>
+            <div class="disc"></div>
+            <div class="disc"></div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<div class="navbar-area nav-bg-1">
+    <div class="mobile-responsive-nav">
+        <div class="container">
+            <div class="mobile-responsive-menu">
+                <div class="logo">
+                    <a href="">
+                        <img src="{{asset('assets/images/logo.png')}}" class="main-logo" lt="logo" alt="">
+                        <img src="{{asset('assets/images/white-logo.png')}}" class="white-logo" alt="logo">
+                    </a>
                 </div>
             </div>
         </div>
-    </section>
-    <section class="py-12 md:py-20">
-        <div class="container px-4 mx-auto">
-            <div class="flex flex-wrap -mx-3">
-                <div class="relative w-full lg:w-1/3 mb-8 lg:mb-0 text-center lg:text-left">
-                    <div class="max-w-md lg:max-w-xs lg:pr-16 mx-auto lg:ml-0 mb-6 lg:mb-0">
-                        <h2 class="text-3xl md:text-4xl mb-4 font-bold font-heading wow animate__animated animate__fadeInUp" data-wow-delay=".3s">Simple Solution for <span class="text-blue-500">Complex</span> Connections</h2>
-                        <p class="text-xs md:text-base text-blueGray-400 leading-loose wow animate__animated animate__fadeInUp" data-wow-delay=".9s">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed luctus eget justo et iaculis.</p>
-                    </div>
-                    <div class="lg:absolute lg:bottom-0 lg:left-0 flex justify-center">
-                        <div id="carausel-2-columns-1-arrows" class="flex"></div>
-                    </div>
+    </div>
+    <div class="desktop-nav">
+        <div class="container-fluid">
+            <nav class="navbar navbar-expand-md navbar-light">
+                <a class="navbar-brand" href="">
+                    <img src="{{asset('assets/images/white-logo.png')}}" alt="logo">
+                </a>
+                <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link active">
+                                Home
+                            </a>
+
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                Events
+                            </a>
+
+                        </li>
+                        <li class="nav-item">
+                            <a href="" class="nav-link">About us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="" class="nav-link">Contact Us</a>
+                        </li>
+                    </ul>
+
+
                 </div>
-                <div class="w-full lg:w-2/3 flex flex-wrap">
-                    <div class="relative w-full">
-                        <div class="carausel-2-columns slick-carausel" id="carausel-2-columns-1">
-                            <div class="px-3 pb-5">
-                                <div class="card-slider group">
-                                    <img class="rounded-xl" src="assets/imgs/placeholders/img-2.jpg" alt="">
-                                    <div class="flex justify-between items-end">
-                                        <div>
-                                            <h1 class="mt-5 text-xl font-semibold group-hover:text-blue-500">User growth</h1>
-                                            <p class="mt-2 text-xs text-gray-500">Harvard university</p>
-                                        </div>
-                                        <div>
-                                            <a class="tracking-wide hover-up-2 mr-2 inline-block px-4 py-3 text-xs text-blue-500 font-semibold leading-none border border-blue-200 hover:border-blue-500 hover:text-white hover:bg-blue-500 rounded">View Details</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="px-3 pb-5">
-                                <div class="card-slider group">
-                                    <img class="rounded-xl" src="assets/imgs/placeholders/img-3.jpg" alt="">
-                                    <div class="flex justify-between items-end">
-                                        <div>
-                                            <h1 class="mt-5 text-xl font-semibold group-hover:text-blue-500">Product Launch</h1>
-                                            <p class="mt-2 text-xs text-gray-500">Cocacola., Co</p>
-                                        </div>
-                                        <div>
-                                            <a class="tracking-wide hover-up-2 mr-2 inline-block px-4 py-3 text-xs text-blue-500 font-semibold leading-none border border-blue-200 hover:border-blue-500 hover:text-white hover:bg-blue-500 rounded">View Details</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="px-3 pb-5">
-                                <div class="card-slider group">
-                                    <img class="rounded-xl" src="assets/imgs/placeholders/img-4.jpg" alt="">
-                                    <div class="flex justify-between items-end">
-                                        <div>
-                                            <h1 class="mt-5 text-xl font-semibold group-hover:text-blue-500">New Event</h1>
-                                            <p class="mt-2 text-xs text-gray-500">Oxford university</p>
-                                        </div>
-                                        <div>
-                                            <a class="tracking-wide hover-up-2 mr-2 inline-block px-4 py-3 text-xs text-blue-500 font-semibold leading-none border border-blue-200 hover:border-blue-500 hover:text-white hover:bg-blue-500 rounded">View Details</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="px-3 pb-5">
-                                <div class="card-slider group">
-                                    <img class="rounded-xl" src="assets/imgs/placeholders/img-5.jpg" alt="">
-                                    <div class="flex justify-between items-end">
-                                        <div>
-                                            <h1 class="mt-5 text-xl font-semibold group-hover:text-blue-500">Shopping Mall</h1>
-                                            <p class="mt-2 text-xs text-gray-500">Alibaba Co</p>
-                                        </div>
-                                        <div>
-                                            <a class="tracking-wide hover-up-2 mr-2 inline-block px-4 py-3 text-xs text-blue-500 font-semibold leading-none border border-blue-200 hover:border-blue-500 hover:text-white hover:bg-blue-500 rounded">View Details</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+            </nav>
+        </div>
+    </div>
+    `2
+</div>
+<div class="banner-area pb-100">
+    <div class="container-fluid">
+        <div class="hero-slider owl-carousel owl-theme" data-slider-id="1">
+            <div class="slider-item banner-bg-1">
+                <div class="slider-content">
+                    <h1>Explore UOK Events on big discount</h1>
+                    <p>Subscribe to get a big discount basing on your selected plan</p>
+                    <a href="" class="default-btn btn">Start a Journey <i class="flaticon-next"></i></a>
+                </div>
+            </div>
+            <div class="slider-item banner-bg-2">
+                <div class="slider-content">
+                    <h1>Explore UOK Events on big discount</h1>
+                    <p>Subscribe to get a big discount basing on your selected plan</p>
+                    <a href="" class="default-btn btn">Start a Journey <i class="flaticon-next"></i></a>
+                </div>
+            </div>
+            <div class="slider-item banner-bg-3">
+                <div class="slider-content">
+                    <h1>Explore UOK Events on big discount</h1>
+                    <p>Subscribe to get a big discount basing on your selected plan</p>
+                    <a href="" class="default-btn btn">Start a Journey <i class="flaticon-next"></i></a>
                 </div>
             </div>
         </div>
-    </section>
-    <section class="py-20 xl:bg-contain bg-top bg-no-repeat" style="background-image: url('assets/imgs/backgrounds/intersect.svg')">
-        <div class="container px-4 mx-auto">
-            <div class="text-center mb-16">
-                <h2 class="max-w-lg mx-auto mb-4 text-4xl font-bold font-heading wow animate__animated animate__fadeInUp" data-wow-delay=".2s">
-                    <span>Start saving time today and</span>
-                    <span class="text-blue-500">choose</span>
-                    <span>your best plan</span>
-                </h2>
-                <p class="max-w-sm mx-auto text-lg text-blueGray-400 wow animate__animated animate__fadeInDown" data-wow-delay=".5s">Best for freelance developers who need to save their time</p>
+        <div class="owl-thumbs" data-slider-id="1">
+            <button class="owl-thumb-item">
+                <img src="assets/images/banner/thumb-1.jpg" alt="Images">
+            </button>
+            <button class="owl-thumb-item">
+                <img src="assets/images/banner/thumb-2.jpg" alt="Images">
+            </button>
+            <button class="owl-thumb-item">
+                <img src="assets/images/banner/thumb-3.jpg" alt="Images">
+            </button>
+        </div>
+    </div>
+</div>
+
+
+<div class="academic-area pt-100 pb-70">
+    <div class="container">
+        <div class="section-title">
+            <h2>About UOK Alumni</h2>
+            <p>Identifications and Records that enable graduates to sign up for a subscription and pay a little
+                amount to allow accessing of some future university services.
+            </p>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200"
+                 data-aos-once="true">
+                <div class="single-academics-card">
+                    <div class="academic-top-content">
+                        <i class="flaticon-college-graduation"></i>
+                        <a href="academics-details.html">
+                            <h3>Join our community</h3>
+                        </a>
+                    </div>
+                    <p>Create a free plan account to get started.</p>
+
+                </div>
             </div>
-            <div class="flex flex-wrap -mx-3">
-                @forelse($subs as $subscri)
-                    @if($loop->iteration % 2 == 0)
-                    <div class="w-full md:w-1/2 lg:w-1/3 px-3 mb-6">
-                        <div class="hover-up-5 pt-16 pb-8 px-4 text-center text-white bg-blue-500 rounded shadow wow animate__animated animate__fadeInUp" data-wow-delay=".4s">
-                            <img class="h-20 mb-6 mx-auto" src="assets/imgs/icons/agency.svg" alt="">
-                            <h3 class="mb-2 text-4xl font-bold font-heading">{{$subscri->sub_name}}</h3>
-                            <span class="text-4xl font-bold font-heading">RWF {{number_format($subscri->sub_price)}}</span>
-                            <p class="mt-2 mb-8">per year</p>
-                            <div class="flex flex-col items-center mb-8">
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="400"
+                 data-aos-once="true">
+                <div class="single-academics-card">
+                    <div class="academic-top-content">
+                        <i class="flaticon-graduation"></i>
+                        <a href="academics-details.html">
+                            <h3>Choose your preferred plan</h3>
+                        </a>
+                    </div>
+                    <p>Once account is created, you can choose a plan depending on your preferences and get amazing
+                        discount on UOK EVENTS</p>
+
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="600"
+                 data-aos-once="true">
+                <div class="single-academics-card">
+                    <div class="academic-top-content">
+                        <i class="flaticon-writing-tool"></i>
+                        <a href="academics-details.html">
+                            <h3>Graduate Education</h3>
+                        </a>
+                    </div>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Veritatis expedita animi.</p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="campus-information-area pb-70">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6" data-aos="fade-right" data-aos-easing="ease-in-sine" data-aos-duration="1300"
+                 data-aos-once="true">
+                <div class="campus-content pr-20">
+                    <div class="campus-title">
+                        <h2>Campus Information</h2>
+                        <p>University of Kigali is one of the leading private higher institutions of learning in
+                            Rwanda. It is a fully Accredited Chartered University by the Government of the Republic
+                            of Rwanda. It started its operations in October, 2013 upon receiving a definitive
+                            license to operate as a private University.</p>
+                    </div>
+                    <div class="list">
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12">
                                 <ul>
-                                    @forelse($subscri->items as $items)
-                                        <li class="flex items-center">
-                                            <svg class="w-6 h-6 mr-2 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewbox="0 0 24 24" stroke="currentColor">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                            </svg>
-                                            <span>{{$items->item}}</span>
-                                        </li>
-                                    @empty
-                                        No items available
-                                    @endforelse
+                                    <li>
+                                        <i class="ri-check-fill"></i>
+                                        <p>University of Kigali presents a well experienced international human
+                                            resource with 9 professors and 32 PhD holders in various descriptions.
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <i class="ri-check-fill"></i>
+                                        <p>The University believes in diversity in the creation and dissemination of
+                                            critical knowledge, embedded in the richness and potential of the region
+                                            as envisaged by its founders.</p>
+                                    </li>
 
                                 </ul>
                             </div>
-                            <div>
-                                <a class="block sm:inline-block py-4 px-6 mb-4 sm:mb-0 sm:mr-3 text-xs text-blue-500 font-semibold leading-none bg-white hover:bg-blueGray-50 rounded" href="{{route('subscribe',['subName'=>$subscri->sub_name])}}">Start Free Trial</a>
-                                <a class="block sm:inline-block py-4 px-6 text-xs font-semibold leading-none border border-blue-500 hover:border-blue-400 rounded" href="#">Purchase</a>
-                            </div>
-                        </div>
-                    </div>
-                    @else
-                        <div class="w-full md:w-1/2 lg:w-1/3 px-3 mb-6">
-                            <div class="hover-up-5 pt-16 pb-8 px-4 text-center bg-white rounded shadow wow animate__animated animate__fadeInUp" data-wow-delay=".2s">
-                                <img class="h-20 mb-6 mx-auto" src="assets/imgs/icons/startup.svg" alt="">
-                                <h3 class="mb-2 text-4xl font-bold font-heading">{{$subscri->sub_name}}</h3>
-                                <span class="text-4xl text-blue-500 font-bold font-heading">RWF {{number_format($subscri->sub_price)}}</span>
-                                <p class="mt-2 mb-8 text-blueGray-400">Per year</p>
-                                <div class="flex flex-col items-center mb-8">
-                                    <ul class="text-blueGray-400">
-                                        @forelse($subscri->items as $items)
-                                            <li class="flex items-center">
-                                                <svg class="w-6 h-6 mr-2 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewbox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                                </svg>
-                                                <span>{{$items->item}}</span>
-                                            </li>
-                                        @empty
-                                            No items available
-                                        @endforelse
-                                    </ul>
-                                </div>
-                                <div>
-                                    <a class="block sm:inline-block py-4 px-6 mb-4 sm:mb-0 sm:mr-3 text-xs text-white text-center font-semibold leading-none bg-blue-400 hover:bg-blue-500 rounded" href="{{route('subscribe',['subName'=>$subscri->sub_name])}}">Start Free Trial</a>
-                                    <a class="block sm:inline-block py-4 px-6 text-xs text-blueGray-500 hover:text-blueGray-600 text-center font-semibold leading-none bg-white border border-blueGray-200 hover:border-blueGray-300 rounded" href="#">Purchase</a>
-                                </div>
-                            </div>
-                        </div>
-                    @endif
-                @empty
-                    <div class="w-full md:w-1/2 lg:w-1/3 px-3 mb-6">
-                        No plans available
-                    </div>
-                @endforelse
 
+                        </div>
+                    </div>
+
+                    <a href="" class="default-btn btn">Get started with UOK Alumni<i
+                            class="flaticon-next"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-6" data-aos="fade-up" data-aos-easing="ease-in-sine" data-aos-duration="1300"
+                 data-aos-once="true">
+                <div class="campus-image pl-20">
+                    <img src="assets/images/campus-information/campus-1.jpg" alt="Image">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="events-area bg-f4f6f9 ptb-100">
+    <div class="container">
+        <div class="section-title">
+            <h2>Events</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipiscing elit ut elit tellus luctus nec ullamcorper mattis
+            </p>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200"
+                 data-aos-once="true">
+                <div class="single-events-card">
+                    <div class="events-image">
+                        <a href="events-details.html"><img src="assets/images/events/events-1.jpg" alt="Image"></a>
+                        <div class="date">
+                            <span>28</span>
+                            <p>Mar</p>
+                        </div>
+                    </div>
+                    <div class="events-content">
+                        <div class="admin">
+                            <p><a href="events-details.html"><i
+                                        class="flaticon-student-with-graduation-cap"></i>Raymond Salazar</a></p>
+                        </div>
+                        <a href="events-details.html">
+                            <h3>Planning And Facilitating Effective Meetings</h3>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="400"
+                 data-aos-once="true">
+                <div class="single-events-card">
+                    <div class="events-image">
+                        <a href="events-details.html"><img src="assets/images/events/events-2.jpg" alt="Image"></a>
+                        <div class="date">
+                            <span>29</span>
+                            <p>Mar</p>
+                        </div>
+                    </div>
+                    <div class="events-content">
+                        <div class="admin">
+                            <p><a href="events-details.html"><i
+                                        class="flaticon-student-with-graduation-cap"></i>Raymond Salazar</a></p>
+                        </div>
+                        <a href="events-details.html">
+                            <h3>Regular WordPress Meetup In New Jersey, USA</h3>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="600"
+                 data-aos-once="true">
+                <div class="single-events-card">
+                    <div class="events-image">
+                        <a href="events-details.html"><img src="assets/images/events/events-3.jpg" alt="Image"></a>
+                        <div class="date">
+                            <span>30</span>
+                            <p>Mar</p>
+                        </div>
+                    </div>
+                    <div class="events-content">
+                        <div class="admin">
+                            <p><a href="events-details.html"><i
+                                        class="flaticon-student-with-graduation-cap"></i>Raymond Salazar</a></p>
+                        </div>
+                        <a href="events-details.html">
+                            <h3>Monday Night Concert In Lake View,Mountain City</h3>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="more-health-care text-center">
+            <p>Select From Hundreds of Options. <a href="health-care.html" class="read-more-btn active">More on
+                    Events<i class="flaticon-next"></i></a></p>
+        </div>
+    </div>
+</div>
+
+
+<!-- Subscription pricing table -->
+<div class="container-fluid">
+    <div class="container p-5">
+        <div class="row">
+            <div class="col-lg-4 col-md-12 mb-4">
+                <div class="card card1 h-100">
+                    <div class="card-body">
+
+                        <h5 class="card-title">Basic</h5>
+                        <small class='text-muted'>Individual</small>
+                        <br><br>
+                        <span class="h2">$8</span>/month
+                        <br><br>
+                        <div class="d-grid my-3">
+                            <button class="btn btn-outline-dark btn-block">Select</button>
+                        </div>
+                        <ul>
+                            <li>Cras justo odio</li>
+                            <li>Dapibus ac facilisis in</li>
+                            <li>Vestibulum at eros</li>
+
+                        </ul>
+                    </div>
+
+
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-12 mb-4">
+                <div class="card card2 h-100">
+                    <div class="card-body">
+
+                        <h5 class="card-title">Standard</h5>
+                        <small class='text-muted'>Small Business</small>
+                        <br><br>
+                        <span class="h2">$20</span>/month
+                        <br><br>
+                        <div class="d-grid my-3">
+                            <button class="btn btn-outline-dark btn-block">Select</button>
+                        </div>
+                        <ul>
+                            <li>Cras justo odio</li>
+                            <li>Dapibus ac facilisis in</li>
+                            <li>Vestibulum at eros</li>
+
+                        </ul>
+                    </div>
+
+
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-12 mb-4">
+                <div class="card card3 h-100">
+                    <div class="card-body">
+
+                        <h5 class="card-title">Premium</h5>
+                        <small class='text-muted'>Large Company</small>
+                        <br><br>
+                        <span class="h2">$40</span>/month
+                        <br><br>
+                        <div class="d-grid my-3">
+                            <button class="btn btn-outline-dark btn-block">Select</button>
+                        </div>
+                        <ul>
+                            <li>Cras justo odio</li>
+                            <li>Dapibus ac facilisis in</li>
+                            <li>Vestibulum at eros</li>
+
+                        </ul>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="courses-area ptb-100 bg-f4f6f9">
+    <div class="container">
+        <div class="section-title">
+            <h2>Free Courses</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipiscing elit ut elit tellus luctus nec ullamcorper mattis
+            </p>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200"
+                 data-aos-once="true">
+                <div class="single-courses-card">
+                    <div class="courses-img">
+                        <a href=""><img src="{{asset('assets/images/courses/courses-1.jpg')}}"
+                                                            alt="Image"></a>
+                    </div>
+                    <div class="courses-content">
+                        <div class="admin-profile">
+                            <img src="{{asset('assets/images/courses/admin-1.jpg')}}" alt="Image">
+                            <p>With <a href="">Jessica Hamson</a></p>
+                        </div>
+                        <a href="">
+                            <h3>Python Programming For Data Science</h3>
+                        </a>
+                        <div class="bottom-content">
+                            <ul class="d-flex justify-content-between">
+                                <li>
+                                    <ul>
+                                        <li><i class="flaticon-graduation"></i>321</li>
+                                        <li><i class="flaticon-bubble-chat"></i>1.2k</li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">Free</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="400"
+                 data-aos-once="true">
+                <div class="single-courses-card">
+                    <div class="courses-img">
+                        <a href=""><img src="assets/images/courses/courses-2.jpg"
+                                                            alt="Image"></a>
+                    </div>
+                    <div class="courses-content">
+                        <div class="admin-profile">
+                            <img src="assets/images/courses/admin-2.jpg" alt="Image">
+                            <p>With <a href="">Christoph Baldwin</a></p>
+                        </div>
+                        <a href="">
+                            <h3>Databases: Advanced Topics In SQL And Athers</h3>
+                        </a>
+                        <div class="bottom-content">
+                            <ul class="d-flex justify-content-between">
+                                <li>
+                                    <ul>
+                                        <li><i class="flaticon-graduation"></i>321</li>
+                                        <li><i class="flaticon-bubble-chat"></i>1.2k</li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">Free</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="600"
+                 data-aos-once="true">
+                <div class="single-courses-card">
+                    <div class="courses-img">
+                        <a href=""><img src="{{asset('assets/images/courses/courses-3.jpg')}}"
+                                                            alt="Image"></a>
+                    </div>
+                    <div class="courses-content">
+                        <div class="admin-profile">
+                            <img src="{{asset('assets/images/courses/admin-3.jpg')}}" alt="Image">
+                            <p>With <a href="">Morgen Matthias</a></p>
+                        </div>
+                        <a href="">
+                            <h3>Analyzing Data With MS Excel & Excel</h3>
+                        </a>
+                        <div class="bottom-content">
+                            <ul class="d-flex justify-content-between">
+                                <li>
+                                    <ul>
+                                        <li><i class="flaticon-graduation"></i>321</li>
+                                        <li><i class="flaticon-bubble-chat"></i>1.2k</li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">Free</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="more-courses text-center">
+            <p>Select From Hundreds of Options <a href="" class="read-more-btn active">More on Courses
+                    <i class="flaticon-next"></i></a></p>
+        </div>
+    </div>
+</div>
+
+
+<div class="campus-life-area ptb-100">
+    <div class="container">
+        <div class="section-title">
+            <h2>Campus Life</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipiscing elit ut elit tellus luctus nec ullamcorper mattis
+            </p>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200"
+                 data-aos-once="true">
+                <div class="single-campus-card">
+                    <div class="img">
+                        <a href=""><img src="{{asset('assets/images/campus-life/campus-life-1.jpg')}}" alt="Image">
+                                                        alt="Image"></a>
+                    </div>
+                    <div class="campus-content">
+                        <span>Art & Culture</span>
+                        <a href="">
+                            <h3>Art, Exercise And Escapism In Nature</h3>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="400"
+                 data-aos-once="true">
+                <div class="single-campus-card">
+                    <div class="img">
+                        <a href=""><img src="{{asset('assets/images/campus-life/campus-life-2.jpg')}}" alt="Image"></a>                                                        alt="Image"></a>
+                    </div>
+                    <div class="campus-content">
+                        <span>Athletics & Fitness</span>
+                        <a href="">
+                            <h3>Improve Athletic Performance Tips From Sanu</h3>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="600"
+                 data-aos-once="true">
+                <div class="single-campus-card">
+                    <div class="img">
+                        <a href=""><img src="{{asset('assets/images/campus-life/campus-life-3.jpg')}}"
+                                                        alt="Image"></a>
+                    </div>
+                    <div class="campus-content">
+                        <span>Student Life</span>
+                        <a href="">
+                            <h3>Why I Changed My Mind About Career Connections</h3>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="more-campus text-center">
+            <p>Select From Hundreds of Options. <a href="" class="read-more-btn active">More on
+                    Campus Life <i class="flaticon-next"></i></a></p>
+        </div>
+    </div>
+</div>
+
+
+<div class="admisssion-area bg-f4f6f9 ptb-100">
+    <div class="container">
+        <div class="admission-content">
+            <div class="section-title">
+                <h2>About our campus</h2>
+
+            </div>
+            <div class="admission-image">
+                <img src="{{asset('assets/images/banner/banner-img1.jpg')}}" alt="Image">
+                <div class="icon">
+                    <a class="popup-youtube play-btn" href="https://www.youtube.com/watch?v=-f3hFts2X-Y"><i
+                            class="ri-play-fill"></i></a>
+                </div>
             </div>
 
         </div>
-    </section>
-    @include('inc.footer')
+    </div>
 </div>
-<!-- End .main -->
 
-<!-- Preloader Start -->
-{{--<div id="preloader-active">
-    <div class="preloader flex-1 content-center">
-        <div class="logo absolute inset-y-2/4 jump">
-            <img src="{{asset('assets/imgs/logos/favicon.svg')}}" alt="">
-            <h1 class="text-lg font-semibold">Monst</h1>
+
+
+<div class="footer-area pt-100 pb-70">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-sm-6">
+                <div class="footer-logo-area">
+                    <a href=""><img src="{{asset('assets/images/white-logo.png')}}" alt="Image"></a>
+                    <p>Identifications and Records that enable graduates to sign up for a subscription and pay a
+                        little amount to allow accessing of some future university services. </p>
+                    <div class="contact-list">
+                        <ul>
+                            <li><a href="tel:+01987655567685">+01-9876-5556-7685
+                                </a></li>
+                            <li><a href="/cdn-cgi/l/email-protection#c0a1a4ada9ae80b3a1aeb5eea5a4b5"><span
+                                        class="__cf_email__"
+                                        data-cfemail="49282d242027093a28273c672c2d3c">[email&#160;protected]</span></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <div class="footer-widjet">
+                    <h3>Campus Life</h3>
+                    <div class="list">
+                        <ul>
+                            <li><a href="">About</a></li>
+                            <li><a href="">Events</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <div class="footer-widjet">
+                    <h3>Our Campus</h3>
+                    <div class="list">
+                        <ul>
+                            <li><a href="">About</a></li>
+                            <li><a href="">Events</a></li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-2 col-sm-6">
+                <div class="footer-widjet">
+                    <h3>Academics</h3>
+                    <div class="list">
+                        <ul>
+                            <li><a href="">About</a></li>
+                            <li><a href="">Events</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="shape">
+            <img src="{{asset('assets/images/shape-1.png')}}" alt="Image">
         </div>
     </div>
-</div>--}}
-<!--Import Vendor Js-->
-<script data-cfasync="false" src="{{asset('assets/scripts/5c5dd728/cloudflare-static/email-decode.min.js')}}"></script><script src="{{asset('assets/js/vendor/modernizr-3.6.0.min.js')}}"></script>
-<script src="{{asset('assets/js/vendor/jquery-3.6.0.min.js')}}"></script>
-<script src="{{asset('assets/js/vendor/waypoints.js')}}"></script>
-<script src="{{asset('assets/js/vendor/counterup.js')}}"></script>
-<script src="{{asset('assets/js/vendor/slick.js')}}"></script>
-<script src="{{asset('assets/js/vendor/wow.js')}}"></script>
-<script src="{{asset('assets/js/vendor/scrollup.js')}}"></script>
-<script src="{{asset('assets/js/vendor/smooth.js')}}"></script>
-<script src="{{asset('assets/js/vendor/textType.js')}}"></script>
-<script src="{{asset('assets/js/vendor/mobile-menu.js')}}"></script>
-<script src="{{asset('assets/js/main.js?v=2.0')}}"></script>
-</body>
+</div>
+
+
+<div class="copyright-area">
+    <div class="container">
+        <div class="copyright">
+            <div class="row">
+                <div class="col-lg-6 col-md-4">
+                    <div class="social-content">
+                        <ul>
+                            <li><span>Follow Us On</span></li>
+                            <li>
+                                <a href="https://www.facebook.com" target="_blank"><i
+                                        class="ri-facebook-fill"></i></a>
+                            </li>
+                            <li>
+                                <a href="https://www.twitter.com" target="_blank"><i
+                                        class="ri-twitter-fill"></i></a>
+                            </li>
+                            <li>
+                                <a href="https://instagram.com/?lang=en" target="_blank"><i
+                                        class="ri-instagram-line"></i></a>
+                            </li>
+                            <li>
+                                <a href="https://linkedin.com/?lang=en" target="_blank"><i
+                                        class="ri-linkedin-fill"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-8">
+                    <div class="copy">
+                        <p>© UOK Alumni is Proudly created by <a href=""
+                                                                 target="_blank">Nkotanyi</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="go-top">
+    <i class="ri-arrow-up-s-line"></i>
+    <i class="ri-arrow-up-s-line"></i>
+</div>
+<script src="{{asset('assets/js/jquery.min.js')}}"></script>
+<script src="{{asset('assets/js/bootstrap.bundle.min.js')}}"></script>
+<script src="{{asset('assets/js/jquery.meanmenu.js')}}"></script>
+<script src="{{asset('assets/js/owl.carousel.min.js')}}"></script>
+<script src="{{asset('assets/js/carousel-thumbs.min.js')}}"></script>
+<script src="{{asset('assets/js/jquery.magnific-popup.js')}}"></script>
+<script src="{{asset('assets/js/aos.js')}}"></script>
+<script src="{{asset('assets/js/odometer.min.js')}}"></script>
+<script src="{{asset('assets/js/appear.min.js')}}"></script>
+<script src="{{asset('assets/js/form-validator.min.js')}}"></script>
+<script src="{{asset('assets/js/contact-form-script.js')}}"></script>
+<script src="{{asset('assets/js/ajaxchimp.min.js')}}"></script>
+<script src="{{asset('assets/js/custom.js')}}"></script></body>
+
 </html>
