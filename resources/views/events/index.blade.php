@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="zxx">
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -18,10 +19,12 @@
     <link rel="stylesheet" href="{{asset('assets/css/dark.css')}}">
 
     <link rel="stylesheet" href="{{asset('assets/css/responsive.css')}}">
+    @livewireStyles
 
     <link rel="icon" type="image/png" href="{{asset('assets/images/favicon.png')}}">
     <title>UOK ALUMNI</title>
 </head>
+
 <body>
 
 <div class="preloader-area">
@@ -35,8 +38,20 @@
 </div>
 
 
-<div class="navbar-area nav-bg-1">
 
+<div class="navbar-area nav-bg-1">
+    <div class="mobile-responsive-nav">
+        <div class="container">
+            <div class="mobile-responsive-menu">
+                <div class="logo">
+                    <a href="">
+                        <img src="assets/images/logo.png" class="main-logo" lt="logo">
+                        <img src="assets/images/white-logo.png" class="white-logo" alt="logo">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
     @include('includes.header')
     <div class="others-option-for-responsive">
         <div class="container">
@@ -51,57 +66,28 @@
     </div>
 </div>
 
-
 <div class="page-banner-area bg-2">
     <div class="container">
         <div class="page-banner-content">
-            <h1>Dashboard</h1>
-            <ul>
-                <li><a href="">Home</a></li>
-                <li>Dashboard</li>
-            </ul>
-        </div>
-    </div>
-</div>
-
-
-<div class="alumni-area pt-100 pb-70">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-6">
-                <div class="alumni-left-content row">
-                    <h3>My events</h3>
-                    <div class="single-alumni-events-card">
-                        <div class="row align-items-center">
-                            <div class="col-lg-5 col-md-5">
-                                <div class="alumni-img">
-                                    <img src="{{asset('assets/images/alumni/alumni-3.jpg')}}" alt="Image">
-                                    <div class="date">
-                                        <p>Apr 11,2022</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-7 col-md-7">
-                                <div class="alumni-content">
-                                    <div class="time">
-                                        <p><i class="flaticon-time"></i>1:00 pm - 1:00 pm</p>
-                                    </div>
-                                    <h3>Regular WordPress Meetup In New Jersey, USA</h3>
-                                    <div class="location">
-                                        <p><i class="ri-map-pin-line"></i>Sanu Grand Hall</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <h1>All UOK Events</h1>
 
         </div>
     </div>
 </div>
+
+
+<div class="events-area pt-100 pb-70">
+    @livewire('events')
+</div>
+
+
+
 
 @include('includes.footer')
+
+
+
+
 
 <div class="go-top">
     <i class="ri-arrow-up-s-line"></i>
@@ -124,4 +110,5 @@
 <script src="{{asset('assets/js/ajaxchimp.min.js')}}"></script>
 <script src="{{asset('assets/js/custom.js')}}"></script>
 </body>
+
 </html>

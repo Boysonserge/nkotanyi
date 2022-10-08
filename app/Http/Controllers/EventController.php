@@ -11,11 +11,11 @@ class EventController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function index()
     {
-        //
+        return view('events.index');
     }
 
     /**
@@ -43,11 +43,12 @@ class EventController extends Controller
      * Display the specified resource.
      *
      * @param  \App\Models\Event  $event
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function show(Event $event)
     {
-        //
+        $event = Event::find($event->id);
+        return view('events.show',['event'=>$event]);
     }
 
     /**

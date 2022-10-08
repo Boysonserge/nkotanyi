@@ -13,7 +13,6 @@ class CallbackController extends Controller
             $get = Payment::where('transaction_id', $request->transaction_id)->first();
             if(isset($get)) {
                 Payment::where('transaction_id', $request->transaction_id)->update(['paid' => 1]);
-
             }
         } else {
             /**

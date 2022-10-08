@@ -38,13 +38,12 @@ class EventResource extends Resource
                         ->maxFiles(1)
                         ->maxSize(1024),
                     Forms\Components\TextInput::make('eventLocation')
-                        ->maxLength(255),
-                    Flatpickr::make('eventDate')
-                        ->dateFormat('Y-m-d')
-                        ->enableTime(true),
+                        ->maxLength(30),
+                    Forms\Components\DatePicker::make('eventDate'),
+                    Forms\Components\TimePicker::make('eventTime'),
 
                     Forms\Components\TextInput::make('eventFee')
-                        ->maxLength(255),
+                        ->numeric(),
                 ])
             ]);
     }
@@ -53,20 +52,14 @@ class EventResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('eventTitle'),
-                Tables\Columns\TextColumn::make('eventSummary'),
-                Tables\Columns\TextColumn::make('eventDescription'),
                 Tables\Columns\ImageColumn::make('eventImage')->rounded(),
+                Tables\Columns\TextColumn::make('eventTitle'),
                 Tables\Columns\TextColumn::make('eventLocation'),
-                Tables\Columns\TextColumn::make('eventDate'),
-                Tables\Columns\TextColumn::make('eventTime'),
+                Tables\Columns\TextColumn::make('eventDate')->date(),
                 Tables\Columns\TextColumn::make('eventFee'),
-                Tables\Columns\TextColumn::make('deleted_at')
-                    ->dateTime(),
                 Tables\Columns\TextColumn::make('created_at')
-                    ->dateTime(),
-                Tables\Columns\TextColumn::make('updated_at')
-                    ->dateTime(),
+                    ->since(),
+
             ])
             ->filters([
                 //

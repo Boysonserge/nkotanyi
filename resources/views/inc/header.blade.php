@@ -2,28 +2,27 @@
 <header class="bg-transparent sticky-bar mt-4">
     <div class="container bg-transparent">
         <nav class="bg-transparent flex justify-between items-center py-3">
-            <a class="text-3xl font-semibold leading-none" href="{{url('/')}}">
+            <a class="text-3xl font-semibold leading-none" href="{{route('/')}}">
                 <img class="h-10" src="{{asset('assets/imgs/logos/monst-logo.svg')}}" alt="">
             </a>
             <ul class="hidden lg:flex lg:items-center lg:w-auto lg:space-x-12">
-                <li class="group relative pt-4 pb-4">
-                    <a href="{{url('/')}}" class="text-sm font-semibold text-blueGray-600 hover:text-blueGray-500">Home</a>
-
+                <li class="relative pt-4 pb-4">
+                    <a href="{{route('/')}}" class="text-sm font-semibold text-blueGray-600 hover:text-blueGray-500">Home</a>
                 </li>
                 <li class="pt-4 pb-4">
-                    <a class="text-sm font-semibold text-blueGray-600 hover:text-blueGray-500" href="about.html">About Us</a>
+                    <a class="text-sm font-semibold text-blueGray-600 hover:text-blueGray-500" href="">Subscriptions</a>
                 </li>
                 <li class="pt-4 pb-4">
-                    <a class="text-sm font-semibold text-blueGray-600 hover:text-blueGray-500" href="services.html">Services</a>
+                    <a class="text-sm font-semibold text-blueGray-600 hover:text-blueGray-500" href="">Services</a>
                 </li>
 
-                <li class="pt-4 pb-4"><a class="text-sm font-semibold text-blueGray-600 hover:text-blueGray-500" href="contact.html">Contact</a></li>
+                <li class="pt-4 pb-4"><a class="text-sm font-semibold text-blueGray-600 hover:text-blueGray-500" href="">Contact</a></li>
             </ul>
             <div class="hidden lg:block">
                 @auth
                     <a href="{{ url('/myaccount') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Dashboard</a>
                 @else
-                    <a href="{{ route('login') }}" class="btn-accent hover-up-2" href="login.html">Log In</a>
+                    <a href="{{ route('login') }}" class="btn-accent hover-up-2">Log In</a>
                     {{--                        <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>--}}
                     @if (Route::has('register'))
                         <a href="{{ route('register') }}" class="btn-primary hover-up-2" href="signup.html">Sign Up</a>

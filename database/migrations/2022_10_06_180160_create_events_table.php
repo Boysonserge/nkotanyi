@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('eventImage')->nullable();
             $table->string('eventLocation')->nullable();
             $table->timestamp('eventDate')->nullable();
+            $table->string('eventTime')->nullable();
             $table->string('eventFee')->nullable();
             $table->softDeletes();
             $table->timestamps();

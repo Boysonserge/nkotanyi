@@ -65,4 +65,7 @@ Route::middleware('auth')->group(function () {
         return view('other.my-profile');
     })->name('myaccount');
 
+
+    /*Activate the payment*/
+    Route::post('/savePayment',[SubscriptionController::class,'payment'])->name('savePayment');
 });

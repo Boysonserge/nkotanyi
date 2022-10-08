@@ -52,11 +52,8 @@
 <div class="page-banner-area bg-2">
     <div class="container">
         <div class="page-banner-content">
-            <h1>Login</h1>
-            <ul>
-                <li><a href="">Home</a></li>
-                <li>Login</li>
-            </ul>
+            <small class="text-white dark:bg-gray-800">You selected: </small><h1>{{$subscription->sub_name}}</h1>
+
         </div>
     </div>
 </div>
@@ -65,47 +62,39 @@
 <div class="register-area pt-100 pb-70">
     <div class="container">
         <div class="register">
-            <h3>Login</h3>
+            <h3>{{$subscription->sub_name}}</h3>
 
-            <form method="POST" action="{{ route('login') }}">
+            <form method="POST" action="{{ route('savePayment') }}">
                 @csrf
+                <input hidden value="{{$subscription->id}}" name="subscription_id">
+                <input hidden value="{{$subscription->sub_price}}" name="amount_paid">
+
                 <div class="row">
                     <div class="col-lg-6 col-md-6">
                         <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="Enter your email">
-                            @error('email')
-                            <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                            @enderror
+                            <label for="email">Amount to be paid: (RWF)</label>
+                            <label>
+                                <input disabled type="text" class="form-control " name="email" value="{{$subscription->sub_price}}" required>
+                            </label>
+
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6">
                         <div class="form-group">
-                            <label for="password">Password</label>
-                            <input type="password" id="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" placeholder="Enter your password">
-                            @error('password')
+                            <label for="text">Enter phone number to pay (<small class="text-red-400">Start with 078.........</small>)</label>
+                            <input type="number" id="text" class="form-control @error('payment_phone') is-invalid @enderror" name="payment_phone" required placeholder="Enter your payment_phone">
+                            @error('payment_phone')
                             <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                             @enderror
                         </div>
                     </div>
-                    <div class="col-lg-12 col-md-12">
-                        <div class="form-group">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-                                <label class="form-check-label" for="remember">
-                                    {{ __('Remember Me') }}
-                                </label>
-                            </div>
-                        </div>
-                    </div>
+
                     <div class="col-lg-12 col-md-12">
                         <div class="form-group">
                             <button type="submit" class="btn btn-primary">
-                                {{ __('Login') }}
+                                {{ __('Confirm payment') }}
                             </button>
                             {{--@if (Route::has('password.request'))
                                 <a class="btn btn-link" href="{{ route('password.request') }}">
@@ -162,9 +151,10 @@
     <i class="ri-arrow-up-s-line"></i>
     <i class="ri-arrow-up-s-line"></i>
 </div>
-@livewireScripts
-<script src="{{asset('assets/js/jquery.min.js')}}"></script>
 
+@livewireScripts
+
+<script src="{{asset('assets/js/jquery.min.js')}}"></script>
 <script src="{{asset('assets/js/jquery.min.js')}}"></script>
 <script src="{{asset('assets/js/bootstrap.bundle.min.js')}}"></script>
 <script src="{{asset('assets/js/jquery.meanmenu.js')}}"></script>
