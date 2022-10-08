@@ -17,10 +17,16 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
+            $table->string('phone')->nullable();
+            $table->string('faculty')->nullable();
+            $table->string('department')->nullable();
+            $table->string('graduationYear')->default('student');
+            $table->string('idCode')->nullable();
+//            $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->string('role')->default('student');
             $table->rememberToken();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

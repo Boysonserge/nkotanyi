@@ -93,6 +93,76 @@
                             @enderror
                         </div>
                     </div>
+
+                    <div class="col-lg-6 col-md-6">
+                        <div class="form-group">
+                            <label for="phone">Phone</label>
+                            <input type="text" id="phone" class="form-control @error('phone') is-invalid @enderror" name="phone" value="{{ old('phone') }}" required autocomplete="phone" placeholder="Enter your phone">
+                            @error('phone')
+                            <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-6">
+                        <div class="form-group">
+                            <label for="faculty">Faculty</label>
+                            <input type="text" id="faculty" class="form-control @error('faculty') is-invalid @enderror" name="faculty" value="{{ old('faculty') }}" required autocomplete="faculty" placeholder="Enter your faculty">
+                            @error('faculty')
+                            <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+                    </div>
+
+
+                    <div class="col-lg-6 col-md-6">
+                        <div class="form-group">
+                            <label for="department">Department</label>
+                            <input type="text" id="department" class="form-control @error('department') is-invalid @enderror" name="department" value="{{ old('department') }}" required autocomplete="department" placeholder="Enter your department">
+                            @error('department')
+                            <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-6">
+                        <div class="form-group">
+                            <label for="graduationYear">Graduation Year</label>
+                            <input type="text" id="graduationYear" class="form-control @error('graduationYear') is-invalid @enderror" name="graduationYear" value="{{ old('graduationYear') }}" required autocomplete="graduationYear" placeholder="Enter your graduationYear">
+                            @error('graduationYear')
+                            <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-6">
+                        <div class="form-group">
+                            <label for="subscription">Choose subscription</label>
+                            <select name="subscriptions" class="form-control">
+                                @foreach($subscriptions as $subscription)
+                                    <option value="{{$subscription->id}}">{{$subscription->sub_name.' ( '.$subscription->sub_price.' Rwf ) '}}</option>
+
+                                @endforeach
+                            </select>
+                            @error('subscriptions')
+                            <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+                    </div>
+
+
+
+
                     <div class="col-lg-6 col-md-6">
                         <div class="form-group">
                             <label for="password">Password</label>

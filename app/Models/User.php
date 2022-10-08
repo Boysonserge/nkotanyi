@@ -18,12 +18,7 @@ class User extends Authenticatable implements FilamentUser
      *
      * @var array<int, string>
      */
-    protected $fillable = [
-        'name',
-        'email',
-        'password',
-    ];
-
+    protected $guarded = [];
     /**
      * The attributes that should be hidden for serialization.
      *
@@ -47,6 +42,8 @@ class User extends Authenticatable implements FilamentUser
     {
         return auth()->user()->role == 'admin';
     }
-
+    public function subscriptions(){
+        return $this->belongsToMany(Subscription::class);
+    }
 
 }

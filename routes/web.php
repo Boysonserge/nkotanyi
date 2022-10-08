@@ -26,10 +26,7 @@ Route::get('/index', function () {
 
 Route::get('/',[IndexController::class,'index'])->name('/');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
-
+Route::get('dashboard',[IndexController::class,'dashboard'])->name('dashboard')->middleware('auth');
 
 Route::get('pay',[SubscriptionController::class,'payment'])->name('pay');
 

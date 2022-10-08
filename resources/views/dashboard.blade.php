@@ -57,14 +57,14 @@
         <div class="page-banner-content">
             <h1>Dashboard</h1>
             <ul>
-                <li><a href="">Home</a></li>
-                <li>Dashboard</li>
+                <li><a href="">{{auth()->user()->name. ' | '.auth()->user()->email }}</a></li>
             </ul>
         </div>
     </div>
 </div>
 
 
+{{--
 <div class="alumni-area pt-100 pb-70">
     <div class="container">
         <div class="row">
@@ -100,6 +100,61 @@
         </div>
     </div>
 </div>
+--}}
+<div class="alumni-area pt-100 pb-70">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-lg-6">
+                <div class="alumni-right-content">
+                    <h3>My profile</h3>
+                    <div class="single-alumni-profile-card">
+                        <div class="row align-items-center">
+
+
+                            <div class="col-lg-7 col-md-7">
+                                <div class="alumni-content">
+                                    <h3>{{auth()->user()->name}}</h3>
+                                    <p>{{auth()->user()->email}}</p>
+                                    <p>{{auth()->user()->phone}}</p>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+
+
+            <div class="col-lg-6">
+                <div class="alumni-right-content">
+                    <h3>Current subscriptions</h3>
+                    <div class="single-alumni-profile-card">
+                        <div class="row align-items-center">
+
+                            <div class="col-lg-7 col-md-7">
+                                <div class="alumni-content">
+                                    @forelse($sub as $subscription)
+                                        <h3>{{$subscription->sub_name}}</h3>
+                                        <p>{{$subscription->sub_price}}RWF</p>
+                                    @empty
+                                        <h3>No subscription</h3>
+
+                                    @endforelse
+
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+
+    </div>
+
 
 @include('includes.footer')
 

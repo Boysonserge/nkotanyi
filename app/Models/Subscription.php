@@ -16,4 +16,8 @@ class Subscription extends Model
 
         return $this->belongsToMany(Item::class,'item_subscription');
     }
+
+    public function user(){
+        return $this->belongsToMany(User::class,'user_id');
+    }
 }
