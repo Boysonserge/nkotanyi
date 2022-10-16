@@ -48,12 +48,12 @@ class PaymentResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('users.name'),
-                Tables\Columns\TextColumn::make('subscriptions.sub_name'),
+                Tables\Columns\TextColumn::make('subscriptions.sub_name')->searchable(),
                 Tables\Columns\TextColumn::make('amount_paid'),
                 Tables\Columns\BooleanColumn::make('paid'),
                 Tables\Columns\TextColumn::make('end_date')
                     ->dateTime(),
-                Tables\Columns\TextColumn::make('transaction_id'),
+                Tables\Columns\TextColumn::make('transaction_id')->searchable(),
                 Tables\Columns\TextColumn::make('payment_phone'),
                 Tables\Columns\TextColumn::make('created_at')
                     ->label('Paid at')

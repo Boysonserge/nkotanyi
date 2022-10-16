@@ -8,6 +8,7 @@ use App\Models\BookEvent;
 use App\Models\Payment;
 use App\Models\Subscription;
 use App\pkg\PaymentApi;
+use App\pkg\SendMessage;
 use Illuminate\Http\Request;
 
 
@@ -25,8 +26,12 @@ class SubscriptionController extends Controller
         if($request->status == "SUCCESS") {
             $get = Payment::where('transaction_id', $request->transactionId)->first();
             if(isset($get)) {
-                Payment::where('transaction_id', $request->transactionId)->update(['paid' => 1]);
-
+                $update=$get->update(['paid' => 1]);
+                $subscription = Subscription::where('id', $get->subscription_id)->first();
+                $name=$get->users->name;
+                $phone="+25".$get->users->phone;
+                $message="Hello ".$name.", your subscription has been paid successfully. Thank you for using our service. your transaction id is ".$request->transactionId;
+                (new SendMessage())->send("$message", "$phone");
             }
         } else {
             /**
@@ -35,7 +40,7 @@ class SubscriptionController extends Controller
             $get = Payment::where('transaction_id', $request->transactionId)->first();
         }
 
-        return true;
+        return $phone;
     }
 
     /**
