@@ -16,7 +16,7 @@ class SubscriptionController extends Controller
 
 
     public function pay(){
-        $test=(new \App\pkg\PaymentApi())->payment_api('TID63416D2D6A111','10','0780331198');
+        $test=(new \App\pkg\PaymentApi())->payment_api('TID6341DB4A8853X','10','0780331198');
        return $test;
     }
 

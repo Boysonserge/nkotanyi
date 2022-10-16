@@ -48,7 +48,7 @@ class RegisteredUserController extends Controller
             'graduationYear' => ['required', 'string', 'max:255'],
             'department'=> ['required', 'string', 'max:255'],
             'faculty'=> ['required', 'string', 'max:255'],
-            'password' => ['required', 'confirmed', Rules\Password::defaults()],
+            'password' => ['required', 'confirmed' /*Rules\Password::defaults()*/],
             'subscriptions' => ['required', 'integer'],
         ]);
 
