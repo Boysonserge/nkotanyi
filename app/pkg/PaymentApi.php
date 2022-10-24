@@ -12,7 +12,7 @@ class PaymentApi
                 "amount" : "'.$amount.'",
                 "organizationId" : "8a74810968e261260168f08a378c0002",
                 "description" : "description",
-                "callbackUrl" : "https://a346-2c0f-fe30-3ab0-0-1d63-524e-6a62-5248.in.ngrok.io/api/callback",
+                "callbackUrl" : "https://2d0a-2c0f-fe30-3ab0-0-69a5-1d7b-314e-ead3.eu.ngrok.io/api/callback",
                 "transactionId" : "'.$transactionId.'"
             }';
 
